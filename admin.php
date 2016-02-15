@@ -39,6 +39,12 @@ if ( isset($_GET['m']) ){
 		case "pventaEditar":
 			$paginaPHP = "php/pventaEditar.php";
 		break;
+		case "categoria":
+			$paginaPHP = "php/categoria.php";
+		break;
+		case "usuarios":
+			$paginaPHP = "php/usuarios.php";
+		break;
 	}
 } else {
 		$paginaPHP = "php/index.php";
@@ -92,6 +98,13 @@ $errorMsg = "";
 										<li> <a href="admin.php?m=clientes"> <i class="fa fa-angle-right"></i> <span>Clientes</span> </a> </li>
 										<li><a href="admin.php?m=inventario"><i class="fa fa-angle-right"></i><span>Inventario</span></a></li>
 										<li><a href="admin.php?m=pventa"><i class="fa fa-angle-right"></i><span>Punto de venta</span></a></li>
+										<li class="">
+											<a href="#webpage" class=""><i class="fa fa-angle-right icon"></i> <span class="pull-right"> <i class="fa fa-angle-down text"></i> <i class="fa fa-angle-up text-active"></i> </span> <span>Configuracion</span> </a>
+											<ul class="nav lt" style="display: none;">
+												<li> <a href="admin.php?m=categoria"> <i class="fa fa-angle-right"></i> <span>Categoria</span> </a> </li>
+												<li> <a href="admin.php?m=usuarios"> <i class="fa fa-angle-right"></i> <span>Usuarios</span> </a> </li>
+											</ul>
+										</li>
 									</ul>
 								</nav>
 								<!-- / nav -->

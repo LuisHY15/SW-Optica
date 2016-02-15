@@ -1,6 +1,6 @@
 <section class="panel panel-default pos-rlt clearfix">
 
-	<header class="panel-heading"> <i class="fa fa-list"></i> Historial Cllinico</header>
+	<header class="panel-heading"> <i class="fa fa-list"></i> Clientes</header>
 	
 	<div class="row wrapper">
 		<div class="col-sm-9 m-b-xs">

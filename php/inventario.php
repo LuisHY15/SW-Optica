@@ -1,6 +1,6 @@
 <section class="panel panel-default pos-rlt clearfix">
 
-	<header class="panel-heading"> <i class="fa  "></i> Inventario </header>
+	<header class="panel-heading"> <i class="fa fa-list "></i> Inventario </header>
 	
 	<div class="row wrapper">
 		<div class="col-md-9 m-b-xs">
