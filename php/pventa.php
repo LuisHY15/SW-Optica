@@ -5,13 +5,13 @@
 	<div class="row wrapper">
 		<div class="col-xs-12 col-sm-2 m-b-xs">
 
-	<a href="admin.php?m=pventaAgregar" class="pull-left btn btn-sm btn-success"><i class="fa fa-plus"></i> Nueva Orden</a>';
+	<a href="admin.php?m=pventaAgregar" class="pull-left btn btn-sm btn-success"><i class="fa fa-plus"></i> Nueva Orden</a>
 
 		</div>
 		<div class="col-xs-12 col-sm-7 m-b-xs text-left-xs text-center">
 
-			<a href="admin.php?m=cuentas" class="btn btn-default btn-sm">Cuentas por Cobrar</a> &nbsp;;
-			<a href="admin.php?m=reportes" class="btn btn-default btn-sm">Reporte de Ingresos</a>;
+			<a href="admin.php?m=cuentas" class="btn btn-default btn-sm">Cuentas por Cobrar</a> &nbsp;
+			<a href="admin.php?m=reportes" class="btn btn-default btn-sm">Reporte de Ingresos</a>
 
 
 		</div>

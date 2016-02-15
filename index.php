@@ -37,7 +37,7 @@ if ( isset($_POST['user']) ){
 ?>
 
 <!DOCTYPE html>
-<html lang="en" class="bg-white">
+<html lang="en" class="bg-">
 <head> 
 		<meta charset="utf-8" />
 		<title>FORBIDDEN 403</title>
