@@ -21,7 +21,6 @@
 					<th>Apellido</th>
 					<th>Telefono</th>
 					<th>E-mail</th>
-					<th>Credito</th>
 					<th width="180"></th>
 				</tr>
 			</thead>
@@ -32,7 +31,6 @@
 					<td>columna 2 </td>
 					<td>columna 3</td>
 					<td>columna 4 </td>
-					<td>columna 5 </td>
 					<td>
 						<a href="admin.php?m=clientesEditar" class="btn btn-sm btn-default"> <i class="fa fa-pencil"></i> </a> &nbsp;
 						<a href="" class="btn btn-sm btn-info"><i class="fa fa-file"></i></a>&nbsp;
@@ -45,7 +43,6 @@
 					<td>columna 2 </td>
 					<td>columna 3</td>
 					<td>columna 4 </td>
-					<td>columna 5 </td>
 					<td>
 						<a href="admin.php?m=clientesEditar" class="btn btn-sm btn-default"> <i class="fa fa-pencil"></i> </a> &nbsp;
 						<a href="" class="btn btn-sm btn-info"><i class="fa fa-file"></i></a>&nbsp;
