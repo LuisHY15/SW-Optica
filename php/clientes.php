@@ -18,40 +18,48 @@
 			<thead>
 				<tr>
 					<th>Nombre </th>
-					<th>Apellido</th>
+					<th>Sexo</th>
 					<th>Telefono</th>
 					<th>E-mail</th>
 					<th width="180"></th>
 				</tr>
 			</thead>
 			<tbody>
+<?php
 
+			if ( isset($_GET['buscar']) ){
+
+				$buscar = mysql_real_escape_string($_GET['buscar']);
+
+				$consulta  = "SELECT * FROM clientes WHERE 
+					(nombre LIKE '%".$buscar."%' OR 
+						sexo LIKE '%".$buscar."%' OR 
+						telefono LIKE '%".$buscar."%' OR 
+						correo LIKE '%".$buscar."%') 
+					ORDER BY nombre ASC";
+					
+			} else {
+				$consulta  = "SELECT * FROM clientes ORDER BY nombre ASC";
+			
+
+	while($q = mysql_fetch_object($consulta)){
+?>
 				<tr>
-					<td>columna 1</td>
-					<td>columna 2 </td>
-					<td>columna 3</td>
-					<td>columna 4 </td>
+					<td><?php echo $q->nombre; ?></td>
+					<td><?php echo $q->sexo; ?></td>
+					<td><?php echo $q->telefono; ?></td>
+					<td><?php echo $q->correo; ?></td>
 					<td>
 						<a href="admin.php?m=clientesEditar" class="btn btn-sm btn-default"> <i class="fa fa-pencil"></i> </a> &nbsp;
 						<a href="" class="btn btn-sm btn-info"><i class="fa fa-file"></i></a>&nbsp;
-						<a href="" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i> </a>
-						
-					</td>
-				</tr>
-				<tr>
-					<td>columna 1</td>
-					<td>columna 2 </td>
-					<td>columna 3</td>
-					<td>columna 4 </td>
-					<td>
-						<a href="admin.php?m=clientesEditar" class="btn btn-sm btn-default"> <i class="fa fa-pencil"></i> </a> &nbsp;
-						<a href="" class="btn btn-sm btn-info"><i class="fa fa-file"></i></a>&nbsp;
-						<a href="" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i> </a>
+						<a href="" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i> </a>					
 					</td>
 				</tr>
 
+<?php
+			}
+?>
 			</tbody>
 		</table>
 	</div>
-
 </section>

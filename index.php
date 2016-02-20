@@ -14,7 +14,7 @@ if ( isset($_POST['user']) ){
 	$user = mysql_real_escape_string($_POST['user']);
 	$pass = mysql_real_escape_string($_POST['pass']);
 
-	$consulta = "SELECT * FROM usuarios WHERE email='".$user."' AND password='".$pass."' LIMIT 1";
+	$consulta = "SELECT * FROM usuarios WHERE usuario='".$user."' AND passw0rd='".$pass."' LIMIT 1";
 	if ( mysql_num_rows( mysql_query($consulta) )){
 
 		$data 				= mysql_fetch_object(mysql_query($consulta));
@@ -22,7 +22,7 @@ if ( isset($_POST['user']) ){
 		$_SESSION['userId'] = $data->id;
 		$_SESSION['userNm'] = $user;
 
-		mysql_query("UPDATE usuarios SET acceso='".date("Y/m/d")."' WHERE id='".$data->id."'");
+		mysql_query("UPDATE usuarios SET ingreso='".date("Y/m/d")."' WHERE id_usuario='".$data->id."'");
 
 		header("Location: admin.php");
 	} else {
