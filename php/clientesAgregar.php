@@ -1,19 +1,31 @@
 <?php
 
-if ( isset($_POST['']) ){
+if ( isset($_POST['nombre']) ){
 
 	$nombre 	    = mysql_real_escape_string($_POST['nombre']);
 	$correo 	    = mysql_real_escape_string($_POST['correo']);
-	$nacimiento     = mysql_real_escape_string($_POST['nacimienti']);
+	$nacimiento     = mysql_real_escape_string($_POST['nacimiento']);
 	$sexo  	        = mysql_real_escape_string($_POST['sexo']);
 	$edad  	        = mysql_real_escape_string($_POST['edad']);
 	$domicilio  	= mysql_real_escape_string($_POST['domicilio']);
 	$telefono  		= mysql_real_escape_string($_POST['telefono']);
-	$colonia  	    = mysql_real_escape_string($_POST['Colonia']);
 	$cp  		    = mysql_real_escape_string($_POST['cp']);
 	$celular  	    = mysql_real_escape_string($_POST['celular']);
+    $colonia  	    = mysql_real_escape_string($_POST['Colonia']);
+/*	$errorMsg = "INSERT INTO clientes SET nombre='".$nombre."',correo='".$correo."',nacimiento='".$nacimiento."',sexo='".$sexo."',edad='".$edad."',domicilio='".$domicilio."',telefono='".$telefono."',colonia='".$colonia."',cp='".$cp."',celular='".$celular."'";*/
 
-	if ( mysql_query("") ){
+	if ( mysql_query(
+		"INSERT INTO clientes SET nombre='".$nombre."',
+		nacimiento='".$nacimiento."',
+		correo='".$correo."',
+		sexo='".$sexo."',
+		edad='".$edad."',
+		domicilio='".$domicilio."',
+	    colonia='".$colonia."',
+		cp='".$cp."',
+		telefono='".$telefono."',
+		celular='".$celular."'") )
+	{
 		$errorMsg = '<div class="alert alert-success">
 				<i class="fa fa-check"></i> Cliente agregado correctamente.
 			</div>';
