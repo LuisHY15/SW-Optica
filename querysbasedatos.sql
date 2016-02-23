@@ -3,7 +3,8 @@ CREATE TABLE usuarios(
 	nombre     varchar(30) not null,
 	privilegio varchar(18) not null,
 	usuario    varchar(20) not null,
-	passw0rd   varchar(20) not null,
+	correo     varchar(30) not null,
+	password   varchar(20) not null,
 	ip         varchar(20) not null,
 	ingreso    datetime not null,
 	PRIMARY KEY (idusuario)

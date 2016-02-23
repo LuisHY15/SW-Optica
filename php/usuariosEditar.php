@@ -1,18 +1,20 @@
 <?php
 
+$idusuario = mysql_real_escape_string($_GET['id']);
+
 if ( isset($_POST['nombre']) ){
 
 	$nombre 	    = mysql_real_escape_string($_POST['nombre']);
-	$privilegio 	    = mysql_real_escape_string($_POST['privilegio']);
+	$privilegio 	= mysql_real_escape_string($_POST['privilegio']);
 	$usuario 	    = mysql_real_escape_string($_POST['usuario']);
     $correo         = mysql_real_escape_string($_POST['correo']);
 	$password 	    = mysql_real_escape_string($_POST['password']);
 	$ip = gethostbyname(gethostname());
 
-	if ( mysql_query("INSERT INTO usuarios SET nombre='".$nombre."',privilegio='".$privilegio."',usuario='".$usuario."',correo='".$correo."',password='".$password."',ip='".$ip."',ingreso='".date("Y-m-d")."'") )
+	if ( mysql_query("UPDATE usuarios SET nombre='".$nombre."',privilegio='".$privilegio."',usuario='".$usuario."',correo='".$correo."',password='".$password."',ip='".$ip."',ingreso='".date("Y-m-d")."',WHERE idusuario='".$idusuario."'") )
 	{
 		$errorMsg = '<div class="alert alert-success">
-				<i class="fa fa-check"></i> Usuario agregado correctamente.
+				<i class="fa fa-check"></i> Usuario editado correctamente.
 			</div>';
 	} else {
 		$errorMsg = '<div class="alert alert-danger">
@@ -22,11 +24,12 @@ if ( isset($_POST['nombre']) ){
 	}
 }
 
+$data = mysql_fetch_object(mysql_query("SELECT * FROM usuarios WHERE idusuario='".$idusuario."' LIMIT 1"));
 ?>	
 
 	<section class="panel panel-default">
 			<header class="panel-heading">
-				<i class="fa fa-wrench"></i> Configuracion de Usuario
+				<i class="fa fa-wrench"></i> Editar Usuario
 			</header>
 			<div class="panel-body">
 				<form class="bs-example form-horizontal" action="" method="post">
@@ -35,15 +38,15 @@ if ( isset($_POST['nombre']) ){
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="col-md-3 control-label">Nombre</label>
-								<div class="col-md-9"><input type="text" name="nombre" class="form-control"></div>
+								<div class="col-md-9"><input type="text" name="nombre"  value="<?php echo $data->nombre; ?>" class="form-control"></div>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="col-md-2 control-label">Usuario</label>
-							    <div class="col-md-4"><input type="text" name="usuario" class="form-control"></div>
+							    <div class="col-md-4"><input type="text" name="usuario" value="<?php echo $data->usuario; ?>" class="form-control"></div>
 								<label class="col-md-2 control-label">Password</label>
-							    <div class="col-md-4"><input type="text" name="password" class="form-control"></div>
+							    <div class="col-md-4"><input type="text" name="password" value="<?php echo $data->password; ?>" class="form-control"></div>
 							</div>
 						</div>	
 					</div>
@@ -51,7 +54,7 @@ if ( isset($_POST['nombre']) ){
 						<div class="col-md-6" >
 							<div class="form-group">
 								<label class="col-md-3 control-label">Correo</label>
-								<div class="col-md-9"><input type="text" name="correo" class="form-control"></div>
+								<div class="col-md-9"><input type="text" name="correo" value="<?php echo $data->correo; ?>" class="form-control"></div>
 							</div>
 						</div>
 						<div class="col-md-6">

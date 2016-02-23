@@ -45,11 +45,17 @@ if ( isset($_GET['m']) ){
 		case "categoriaAgregar":
 			$paginaPHP = "php/categoriaAgregar.php";
 		break;
+		case "categoriaEditar":
+			$paginaPHP = "php/categoriaEditar.php";
+		break;
 		case "usuarios":
 			$paginaPHP = "php/usuarios.php";
 		break;
 		case "usuariosAgregar":
 			$paginaPHP = "php/usuariosAgregar.php";
+		break;
+		case "usuariosEditar":
+			$paginaPHP = "php/usuariosEditar.php";
 		break;
 	}
 } else {

@@ -14,7 +14,7 @@ if ( isset($_POST['user']) ){
 	$user = mysql_real_escape_string($_POST['user']);
 	$pass = mysql_real_escape_string($_POST['pass']);
 
-	$consulta = "SELECT * FROM usuarios WHERE usuario='".$user."' AND passw0rd='".$pass."' LIMIT 1";
+	$consulta = "SELECT * FROM usuarios WHERE usuario='".$user."' AND password='".$pass."' LIMIT 1";
 	if ( mysql_num_rows( mysql_query($consulta) )){
 
 		$data 				= mysql_fetch_object(mysql_query($consulta));

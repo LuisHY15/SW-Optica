@@ -1,6 +1,8 @@
 <?php
 
-if ( isset($_POST['']) ){
+$idcliente = mysql_real_escape_string($_GET['id']);
+
+if ( isset($_POST['nombre']) ){
 
 	$nombre 	    = mysql_real_escape_string($_POST['nombre']);
 	$correo 	    = mysql_real_escape_string($_POST['correo']);
@@ -13,7 +15,7 @@ if ( isset($_POST['']) ){
 	$cp  		    = mysql_real_escape_string($_POST['cp']);
 	$celular  	    = mysql_real_escape_string($_POST['celular']);
 
-	if ( mysql_query("") ){
+	if ( mysql_query("UPDATE clientes SET nombre='".$nombre."',fnacimiento='".$nacimiento."',correo='".$correo."',sexo='".$sexo."',edad='".$edad."',domicilio='".$domicilio."',colonia='".$colonia."',cp='".$cp."',telefono='".$telefono."',celular='".$celular."'") ){
 		$errorMsg = '<div class="alert alert-success">
 				<i class="fa fa-check"></i> Cliente agregado correctamente.
 			</div>';
@@ -22,6 +24,8 @@ if ( isset($_POST['']) ){
 			<i class="fa fa-times"></i> Error, intenta nuevamente.
 		</div>';
 	}
+
+	$data = mysql_fetch_object(mysql_query("SELECT * FROM clientes WHERE idcliente ='".$idcliente."' LIMIT 1"));
 
 }
 
@@ -49,17 +53,17 @@ if ( isset($_POST['']) ){
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="col-lg-3 col-md-3 control-label">Nombre</label>
-								<div class="col-lg-9 col-md-9"><input type="text" name="nombre" class="form-control" placeholder=""></div>
+								<div class="col-lg-9 col-md-9"><input type="text" name="nombre" value="<?php echo $data->nombre; ?>" class="form-control" placeholder=""></div>
 							</div>
 							<div class="form-group">
 								<label class="col-lg-3 col-md-3 control-label">Correo</label>
-								<div class="col-lg-9 col-md-9"><input type="text" name="correo" class="form-control" placeholder=""></div>
+								<div class="col-lg-9 col-md-9"><input type="text" name="correo" value="<?php echo $data->correo; ?>"class="form-control" placeholder=""></div>
 							</div>
 						</div>	
 						<div class="col-md-6">
 							<div class="form-group">
 								<label class="col-lg-3 col-md-3 control-label">Fecha de Nacimiento</label>
-								<div class="col-lg-9 col-md-9 "><input type="text" name="nacimiento" class="form-control" placeholder=""></div>
+								<div class="col-lg-9 col-md-9 "><input type="text" name="nacimiento" value="<?php echo $data->nacimiento; ?>" class="form-control" placeholder=""></div>
 							</div>
 							 <div class="form-group">
 								<label class="col-lg-3 col-md-3 control-label">Sexo</label>
@@ -71,7 +75,7 @@ if ( isset($_POST['']) ){
 									</select>
 								</div>
 								<label class="col-lg-2 col-md-3 control-label">Edad</label>
-								<div class="col-lg-3 col-md-3"><input type="text" name="edad" class="form-control" placeholder=""></div>
+								<div class="col-lg-3 col-md-3"><input type="text" name="edad" value="<?php echo $data->edad; ?>" class="form-control" placeholder=""></div>
 							</div>
 						</div>	
 					</div>
@@ -79,23 +83,23 @@ if ( isset($_POST['']) ){
 						<div class="col-md-6" >
 							<div class="form-group">
 								<label class="col-lg-3 col-md-3 control-label">Domicilio</label>
-								<div class="col-lg-9 col-md-9"><input type="text" name="domicilio" class="form-control" placeholder=""></div>
+								<div class="col-lg-9 col-md-9"><input type="text" name="domicilio" value="<?php echo $data->domicilio; ?>" class="form-control" placeholder=""></div>
 							</div>
 							<div class="form-group">
 								<label class="col-lg-3 col-md-3 control-label">Telefono</label>
-								<div class="col-lg-9 col-md-9 "><input type="text" name="telefono" class="form-control" placeholder=""></div>
+								<div class="col-lg-9 col-md-9 "><input type="text" name="telefono" value="<?php echo $data->telefono; ?>" class="form-control" placeholder=""></div>
 							</div>
 						</div>
 						<div class="col-md-6">
                             <div class="form-group">
 								<label class="col-lg-3 col-md-3 control-label">Colonia</label>
-								<div class="col-lg-3 col-md-3"><input type="text" name="colonia" class="form-control" placeholder=""></div>
+								<div class="col-lg-3 col-md-3"><input type="text" name="colonia" value="<?php echo $data->colonia; ?>" class="form-control" placeholder=""></div>
 								<label class="col-lg-3 col-md-3 control-label">C.P.</label>
-								<div class="col-lg-3 col-md-3"><input type="text" name="cp" class="form-control" placeholder=""></div>
+								<div class="col-lg-3 col-md-3"><input type="text" name="cp"  value="<?php echo $data->cp; ?>" class="form-control" placeholder=""></div>
 							</div>
 							<div class="form-group">
 								<label class="col-lg-3 col-md-3 control-label">Celular</label>
-								<div class="col-lg-9  col-md-9 "><input type="text" name="celular" class="form-control" placeholder=""></div>
+								<div class="col-lg-9  col-md-9 "><input type="text" name="celular" value="<?php echo $data->celular; ?>" class="form-control" placeholder=""></div>
 							</div>
 						</div>
 					</div>

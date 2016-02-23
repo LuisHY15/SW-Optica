@@ -79,9 +79,9 @@ $consulta = mysql_query($consulta);
 					<td><?php echo $q->telefono; ?></td>
 					<td><?php echo $q->correo; ?></td>
 					<td>
-						<a href="admin.php?m=clientesEditar" class="btn btn-sm btn-default"> <i class="fa fa-pencil"></i> </a> &nbsp;
+						<a href="admin.php?m=clientesEditar&id=<?php echo $q->idcliente; ?>" class="btn btn-sm btn-default"> <i class="fa fa-pencil"></i> </a> &nbsp;
 						<a href="" class="btn btn-sm btn-info"><i class="fa fa-file"></i></a>&nbsp;
-						<a href="" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i> </a>					
+						<a href="admin.php?m=clientes&del=<?php echo $q->idcliente; ?>" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i> </a>					
 					</td>
 				</tr>
 <?php

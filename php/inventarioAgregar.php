@@ -23,6 +23,8 @@ if ( isset($_POST['articulo']) ){
 		</div>';
 	}
 
+
+	$data = mysql_fetch_object(mysql_query("SELECT * FROM categoria WHERE idcategoria='".$idcategoria."' LIMIT 1"));
 }
 
 ?>
@@ -71,10 +73,13 @@ if ( isset($_POST['articulo']) ){
 								<div class="col-md-8 col-sm-8 col-xs-10">
 									<select class="form-control" name="categoria">
 										<option></option>
-										<option>Armazones</option>
-										<option>Material Optico</option>
-										<option>Lentes de contacto</option>
-										<option>Bases</option>
+<?php
+			while($q = mysql_fetch_object($data)){ 
+?>
+										<option><?php echo $data->nombre; ?></option>
+<?php
+			}
+?>
 									</select>
 								</div>
 								<div class="col-md-1 col-sm-1 col-xs-1">
@@ -110,6 +115,26 @@ if ( isset($_POST['articulo']) ){
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<?php
+
+if ( isset($_POST['nombre']) ){
+
+	$nombre 	    = mysql_real_escape_string($_POST['nombrecat']);
+
+	if ( mysql_query("INSERT INTO categoria SET nombre='".$nombre."'") )
+	{
+		$errorMsg = '<div class="alert alert-success">
+				<i class="fa fa-check"></i> Categoria agregado correctamente.
+			</div>';
+	} else {
+		$errorMsg = '<div class="alert alert-danger">
+			<i class="fa fa-times"></i> Error, intenta nuevamente.
+		</div>';
+
+	}
+}
+
+?>	
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -117,6 +142,7 @@ if ( isset($_POST['articulo']) ){
         <h4 class="modal-title" id="myModalLabel">Nueva Categoria</h4>
       </div>
       <div class="modal-body">
+      	<?php echo $errorMsg; ?>
     		<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
@@ -127,7 +153,7 @@ if ( isset($_POST['articulo']) ){
 						<div class="col-md-6">
 							<div class="form-group">
 						
-								<div class="col-md-12"><input type="text" name="nombre" class="form-control" placeholder=""></div>
+								<div class="col-md-12"><input type="text" name="nombrecat" class="form-control" placeholder=""></div>
 							</div>
 						</div>
 					
@@ -135,7 +161,7 @@ if ( isset($_POST['articulo']) ){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
