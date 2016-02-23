@@ -10,7 +10,10 @@ if ( isset($_POST['articulo']) ){
 	$descripcion  	    = mysql_real_escape_string($_POST['precioventa']);
 	$observaciones  	= mysql_real_escape_string($_POST['observaciones']);
 
-	if ( mysql_query("") ){
+
+
+
+	if ( mysql_query("INSERT INTO articulos SET nombre='".$nombre."',tipo='".$tipo."',stock='".$stock."',precio='".$precio."',descripcion='".$descripcion."',observaciones='".$observaciones."',") ){
 		$errorMsg = '<div class="alert alert-success">
 				<i class="fa fa-check"></i> Se ha agregado correctamente.
 			</div>';

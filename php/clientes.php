@@ -27,6 +27,7 @@
 			<tbody>
 
 <?php
+
 			if ( isset($_GET['del']) ){
 				$del = mysql_real_escape_string($_GET['del']);
 				mysql_query("DELETE FROM clientes WHERE idcliente='".$del."'");
@@ -39,7 +40,7 @@
 						sexo LIKE '%".$buscar."%' OR 
 						telefono LIKE '%".$buscar."%' OR 
 						correo LIKE '%".$buscar."%') 
-					ORDER BY nombre ASC";
+					ORDER BY nombre ASC"; 
 					$url = "admin.php?m=clientes&buscar=".$buscar;
 			} else {
 				$consulta  = "SELECT * FROM clientes ORDER BY nombre ASC";
@@ -71,7 +72,7 @@ $consulta  .=" $limit";
 $consulta = mysql_query($consulta);
 ##### PAGINADOR #####
 
-			while($q = mysql_fetch_object($consulta)){
+			while($q = mysql_fetch_object($consulta)){ 
 ?>
 					<td><?php echo $q->nombre; ?></td>
 					<td><?php echo $q->sexo; ?></td>

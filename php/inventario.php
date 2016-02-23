@@ -26,57 +26,26 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Armazones</td>
-					<td>Columna2</td>
-					<td>Columna3</td>
-					<td>Columna4</td>
-					<td>Columna5</td>
-					<td>
-						<a href="admin.php?m=inventarioEditar" class="btn btn-sm btn-default"> <i class="fa fa-pencil"></i> </a> &nbsp;
-						<a href="" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i> </a>
-					</td>
-				</tr>
-				<tr>
-					<td>Material Optico</td>
-					<td>Columna2</td>
-					<td>Columna3</td>
-					<td>Columna4</td>
-					<td>Columna5</td>
-					<td>
-						<a href="admin.php?m=inventarioEditar" class="btn btn-sm btn-default"> <i class="fa fa-pencil"></i> </a> &nbsp;
-						<a href="" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i> </a>
-					</td>
-				</tr>			
-
-			</tbody>
-		</table>
-	</div>
-	<footer class="panel-footer">
-		<div class="row">
-			<div class="col-sm-12 text-right text-center-xs">
-				<ul class="pagination pagination-sm m-t-none m-b-none">
-
 <?php
-/*
-			if ( isset($_GET['del']) ){
+
+if ( isset($_GET['del']) ){
 				$del = mysql_real_escape_string($_GET['del']);
-				mysql_query("DELETE FROM stock WHERE idstock='".$del."'");
+				mysql_query("DELETE FROM articulos WHERE idcliente='".$del."'");
 			}
 
 			if ( isset($_GET['buscar']) ){
 				$buscar = mysql_real_escape_string($_GET['buscar']);
-				$consulta  = "SELECT * FROM stock WHERE 
-					(articulo LIKE '%".$buscar."%' OR 
-						marca LIKE '%".$buscar."%' OR 
+				$consulta  = "SELECT * FROM articulos WHERE 
+					(nombre LIKE '%".$buscar."%' OR 
 						tipo LIKE '%".$buscar."%' OR 
-						stock LIKE '%".$buscar."%' OR 
-						observaciones LIKE '%".$buscar."%') 
-					ORDER BY articulo ASC";
-					$url = "admin.php?m=stock&buscar=".$buscar;
+						categoria LIKE '%".$buscar."%' OR 
+						precio LIKE '%".$buscar."%' OR
+						stock LIKE '%".$buscar."%') 
+					ORDER BY nombre ASC"; 
+					$url = "admin.php?m=articulos&buscar=".$buscar;
 			} else {
-				$consulta  = "SELECT * FROM stock ORDER BY articulo ASC";
-				$url = "admin.php?m=stock";
+				$consulta  = "SELECT * FROM articulos ORDER BY nombre ASC";
+				$url = "admin.php?m=clientes";
 			}
 
 ##### PAGINADOR #####
@@ -104,11 +73,34 @@ $consulta  .=" $limit";
 $consulta = mysql_query($consulta);
 ##### PAGINADOR #####
 
-			while($q = mysql_fetch_object($consulta)){ */
-?>
+			while($q = mysql_fetch_object($consulta)){ 
+?>				
+				<tr>
+					<td><?php echo $q->nombre;?></td>
+					<td><?php echo $q->tipo;?></td>
+					<td><?php echo $q->categoria;?></td>
+					<td><?php echo $q->precio;?></td>
+					<td><?php echo $q->stock;?></td>
+					<td>
+						<a href="admin.php?m=inventarioEditar" class="btn btn-sm btn-default"> <i class="fa fa-pencil"></i> </a> &nbsp;
+						<a href="" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i> </a>
+					</td>
+				</tr>
+<?php
+			}
+?>			
+			</tbody>
+		</table>
+	</div>
+
+
+	<footer class="panel-footer">
+		<div class="row">
+			<div class="col-sm-12 text-right text-center-xs">
+				<ul class="pagination pagination-sm m-t-none m-b-none">
 
 <?php
-/*
+
 	if($num_rows != 0){
 		$nextpage = $page + 1;
 		$prevpage = $page - 1;
@@ -144,7 +136,7 @@ $consulta = mysql_query($consulta);
 				echo '<li class="disabled"><a href="#"><i class="fa fa-chevron-right"></i></a></li>';
 			}
 		}
-	} */
+	} 
 ?> 
 				</ul>
 			</div>

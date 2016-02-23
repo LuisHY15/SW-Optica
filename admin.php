@@ -6,7 +6,7 @@
 #	die;
 #}
 
-#include 'db.php';
+include 'db.php';
 
 if ( isset($_GET['m']) ){
 	switch($_GET['m']) {
@@ -42,8 +42,14 @@ if ( isset($_GET['m']) ){
 		case "categoria":
 			$paginaPHP = "php/categoria.php";
 		break;
+		case "categoriaAgregar":
+			$paginaPHP = "php/categoriaAgregar.php";
+		break;
 		case "usuarios":
 			$paginaPHP = "php/usuarios.php";
+		break;
+		case "usuariosAgregar":
+			$paginaPHP = "php/usuariosAgregar.php";
 		break;
 	}
 } else {

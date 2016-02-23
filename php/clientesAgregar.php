@@ -11,20 +11,9 @@ if ( isset($_POST['nombre']) ){
 	$telefono  		= mysql_real_escape_string($_POST['telefono']);
 	$cp  		    = mysql_real_escape_string($_POST['cp']);
 	$celular  	    = mysql_real_escape_string($_POST['celular']);
-    $colonia  	    = mysql_real_escape_string($_POST['Colonia']);
-/*	$errorMsg = "INSERT INTO clientes SET nombre='".$nombre."',correo='".$correo."',nacimiento='".$nacimiento."',sexo='".$sexo."',edad='".$edad."',domicilio='".$domicilio."',telefono='".$telefono."',colonia='".$colonia."',cp='".$cp."',celular='".$celular."'";*/
+    $colonia  	    = mysql_real_escape_string($_POST['colonia']);
 
-	if ( mysql_query(
-		"INSERT INTO clientes SET nombre='".$nombre."',
-		nacimiento='".$nacimiento."',
-		correo='".$correo."',
-		sexo='".$sexo."',
-		edad='".$edad."',
-		domicilio='".$domicilio."',
-	    colonia='".$colonia."',
-		cp='".$cp."',
-		telefono='".$telefono."',
-		celular='".$celular."'") )
+	if ( mysql_query("INSERT INTO clientes SET nombre='".$nombre."',fnacimiento='".$nacimiento."',correo='".$correo."',sexo='".$sexo."',edad='".$edad."',domicilio='".$domicilio."',colonia='".$colonia."',cp='".$cp."',telefono='".$telefono."',celular='".$celular."'") )
 	{
 		$errorMsg = '<div class="alert alert-success">
 				<i class="fa fa-check"></i> Cliente agregado correctamente.
@@ -33,8 +22,8 @@ if ( isset($_POST['nombre']) ){
 		$errorMsg = '<div class="alert alert-danger">
 			<i class="fa fa-times"></i> Error, intenta nuevamente.
 		</div>';
-	}
 
+	}
 }
 
 ?>
